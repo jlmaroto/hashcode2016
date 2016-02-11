@@ -60,11 +60,11 @@ def read_input(filename):
                 if int(i) not in order["items"]:
                     order["items"][int(i)]=0
                 order["items"][int(i)] +=1
-                order["weight"] += products[int(i)]
+                order["weight"] += products[int(i)]["weight"]
             orders.append(order)
     return sim, products, warehouses, orders
 
 if __name__ == '__main__':
     from pprint import pprint
     s,p,w,ord= read_input("datos/busy_day.in")
-    pprint (w)
+    pprint (ord[0])
