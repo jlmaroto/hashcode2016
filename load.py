@@ -13,9 +13,9 @@ def read_input(filename):
         num_products = int(f.readline())
 
         products=[]
-        pesos = f.readline().split(" ")
-        for product in pesos:
-            products.append({"peso":int(product),"stock":{}})
+        wheights = f.readline().split(" ")
+        for product in wheights:
+            products.append({"wheight":int(product),"stock":{}})
 
 
         if len(products) != num_products:
@@ -62,6 +62,3 @@ def read_input(filename):
             orders.append(order)
 
     return sim, products, warehouse, orders
-
-
-print read_input("datos/busy_day.in")
