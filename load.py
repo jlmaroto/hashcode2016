@@ -21,7 +21,6 @@ def read_input(filename):
             print "!!!!!!!!!!!!!!!!!!!!"
 
         num_warehouses = int(f.readline())
-        print num_warehouses
         warehouses = []
         warehouse_id =0
         for i in range(num_warehouses):
