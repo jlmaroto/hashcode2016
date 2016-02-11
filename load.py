@@ -17,7 +17,6 @@ def read_input(filename):
         for product in pesos:
             products.append({"weight":int(product),"stock":{}})
 
-
         if len(products) != num_products:
             print "!!!!!!!!!!!!!!!!!!!!"
 
@@ -63,7 +62,6 @@ def read_input(filename):
                 order["items"][int(i)] +=1
                 order["weight"] += products[int(i)]["weight"]
             orders.append(order)
-
     return sim, products, warehouses, orders
 
 if __name__ == '__main__':
