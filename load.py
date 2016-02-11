@@ -15,8 +15,7 @@ def read_input(filename):
         products=[]
         pesos = f.readline().split(" ")
         for product in pesos:
-            products.append({"peso":int(product),"stock":{}})
-
+            products.append({"weight":int(product),"stock":{}})
 
         if len(products) != num_products:
             print "!!!!!!!!!!!!!!!!!!!!"
@@ -51,7 +50,8 @@ def read_input(filename):
                     "x": int(pos[1]),
                     "y": int(pos[0])
                 },
-                "items": {}
+                "items": {},
+                "weight": 0
             }
             num_items = int(f.readline())
             items =  f.readline().split(" ")
@@ -59,9 +59,11 @@ def read_input(filename):
                 if int(i) not in order["items"]:
                     order["items"][int(i)]=0
                 order["items"][int(i)] +=1
+                order["weight"] += products[int(i)]["weight"]
             orders.append(order)
+    return sim, products, warehouses, orders
 
-    return sim, products, warehouse, orders
-
-
-print read_input("datos/busy_day.in")
+if __name__ == '__main__':
+    from pprint import pprint
+    s,p,w,ord= read_input("datos/busy_day.in")
+    pprint (ord[0])
