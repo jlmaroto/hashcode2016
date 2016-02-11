@@ -1,7 +1,7 @@
 
 def read_input(filename):
     with open(filename) as f:
-        sim_params = f.read_line().split(" ")
+        sim_params = f.readline().split(" ")
         sim = {
             "rows":int(sim_params[0]),
             "cols":int(sim_params[1]),
@@ -10,10 +10,10 @@ def read_input(filename):
             "max_load":int(sim_params[4])
         }
 
-        num_products = int(f.read_line())
+        num_products = int(f.readline())
 
         products=[]
-        pesos = f.read_line().split(" ")
+        pesos = f.readline().split(" ")
         for product in pesos:
             products.append({"peso":int(product),"stock":{}})
 
@@ -21,12 +21,12 @@ def read_input(filename):
         if len(products) != num_products:
             print "!!!!!!!!!!!!!!!!!!!!"
 
-        num_warehouses = int(f.read_line())
+        num_warehouses = int(f.readline())
         warehouses = []
         warehouse_id =0
         for i in range(num_warehouses):
-            pos = f.read_line().split(" ")
-            warehouse_stock =  f.read_line().split(" ")
+            pos = f.readline().split(" ")
+            warehouse_stock =  f.readline().split(" ")
             warehouse = {
                 "position" : {
                     "x": int(pos[1]),
@@ -42,10 +42,10 @@ def read_input(filename):
             warehouses.append(warehouse)
             warehouse_id += 1
 
-        num_orders = int(f.read_line())
+        num_orders = int(f.readline())
         orders =[]
         for i in range(num_orders):
-            pos = f.read_line().split(" ")
+            pos = f.readline().split(" ")
             order = {
                 "position" : {
                     "x": int(pos[1]),
@@ -53,8 +53,8 @@ def read_input(filename):
                 },
                 "items": {}
             }
-            num_items = int(f.read_line())
-            items =  f.read_line().split(" ")
+            num_items = int(f.readline())
+            items =  f.readline().split(" ")
             for i in items:
                 if int(i) not in order["items"]:
                     order["items"][int(i)]=0
@@ -64,4 +64,4 @@ def read_input(filename):
     return sim, products, warehouse, orders
 
 
-
+print read_input("datos/busy_day.in")
