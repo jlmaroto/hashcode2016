@@ -52,7 +52,8 @@ def read_input(filename):
                     "x": int(pos[1]),
                     "y": int(pos[0])
                 },
-                "items": {}
+                "items": {},
+                "weight": 0
             }
             num_items = int(f.readline())
             items =  f.readline().split(" ")
@@ -60,6 +61,7 @@ def read_input(filename):
                 if int(i) not in order["items"]:
                     order["items"][int(i)]=0
                 order["items"][int(i)] +=1
+                order["weight"] += products[int(i)]
             orders.append(order)
 
     return sim, products, warehouses, orders
